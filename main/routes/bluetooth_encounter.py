@@ -6,7 +6,7 @@ from ..schemas.bluetooth_encounter import BluetoothEncounterSchema
 from ..services.db import DbOperations
 
 
-bluetooth_encounter = mongo.ohio.bluetooth_encounter
+bluetooth_encounter = mongo.ohioh.bluetooth_encounter
 db = DbOperations(collections=bluetooth_encounter, schema=BluetoothEncounterSchema)
 
 
