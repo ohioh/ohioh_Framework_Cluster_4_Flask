@@ -2,15 +2,15 @@ import json
 from flask import request
 from main import mongo
 from flask_restful import Resource
-from ..schemas.users import UserSchema
+from ..schemas.bluetooth_encounter import BluetoothEncounterSchema
 from ..services.db import DbOperations
 
 
-users = mongo.ohio.users
-db = DbOperations(collections=users, schema=UserSchema)
+bluetooth_encounter = mongo.ohio.bluetooth_encounter
+db = DbOperations(collections=bluetooth_encounter, schema=BluetoothEncounterSchema)
 
 
-class UserList(Resource):
+class BluetoothEncounterList(Resource):
     def get(self):
         return db.find_all()
 
@@ -19,7 +19,7 @@ class UserList(Resource):
         return db.insert(payload)
 
 
-class User(Resource):
+class BluetoothEncounter(Resource):
     def get(self, user_id):
         return db.find_one(
             criteria={'user_id': user_id}
