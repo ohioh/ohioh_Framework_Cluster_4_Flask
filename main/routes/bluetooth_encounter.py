@@ -29,7 +29,7 @@ class BluetoothEncounter(Resource):
         payload = request.get_json()
         return db.update(
             criteria={'user_id': user_id},
-            updated_value=payload
+            update=payload
         )
 
     def delete(self, user_id):
